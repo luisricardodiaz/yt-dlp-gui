@@ -29,7 +29,6 @@ def progress_hook(d):
             progress_value = float(p_str)
             
             # 3. Update the Progress Bar and Label
-            # We use root.after to update GUI from a background thread safely
             root.after(0, update_progress_ui, progress_value, f"Downloading: {d.get('_percent_str')}")
             
         except ValueError:
@@ -67,7 +66,7 @@ def run_yt_dlp(url, selected_format, save_path):
         'paths': {'home': save_path},
         'format': 'best',
         'outtmpl': '%(title)s.%(ext)s',
-        'progress_hooks': [progress_hook], # Attach the hook here!
+        'progress_hooks': [progress_hook], 
     }
 
     if selected_format == "Audio Only (MP3)":
@@ -126,7 +125,7 @@ folder_label.pack(pady=5)
 download_button = tk.Button(root, text="Download", command=download_content, bg="lightblue", font=("Arial", 12, "bold"))
 download_button.pack(pady=15)
 
-# 5. NEW: Progress Bar
+# 5. Progress Bar
 progress_bar = ttk.Progressbar(root, orient="horizontal", length=400, mode="determinate")
 progress_bar.pack(pady=10)
 
