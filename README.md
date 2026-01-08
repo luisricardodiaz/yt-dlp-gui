@@ -55,5 +55,5 @@ Once the dependencies are installed and the virtual environment is active, run t
 python downloader_gui.py
 # OR (depending on your system)
 python3 downloader_gui.py
-
+```
 ![GUI Screenshot](assets/app_preview.png)
